@@ -7,19 +7,17 @@ import EmailIcon from "./assets/email.svg";
 import GithubIcon from "./assets/github.svg";
 import LinkedinIcon from "./assets/linkedin.svg";
 
-const AppContainer = styled.div`
-  margin: 0 auto;
-  width: 1000px;
-`;
+const AppContainer = styled.div``;
 
 const AppContent = styled.div`
-  margin: 50px auto 0;
-  width: 800px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  width: 60rem;
 `;
 
 const SectionContainer = styled.div`
-  margin-bottom: 100px;
-  line-height: 2em;
+  margin-bottom: 4rem;
+  line-height: 2rem;
 `;
 
 const SectionTitle = styled.h3`
@@ -35,11 +33,10 @@ const TestCardContainer = styled.div`
 
 const ContactIconsContainer = styled.div`
   display: flex;
-  justify-content: left;
 `;
 
-const ContactIcon = styled.img`
-  margin-left: 20px;
+const ContactIcon = styled.a`
+  margin-right: 2rem;
   width: 50px;
   height: 50px;
 `;
@@ -81,12 +78,32 @@ const App: React.FC = () => {
         </SectionContainer>
         <SectionContainer id="contact">
           <SectionTitle>Contact</SectionTitle>
-          You can reach me via email and LinkedIn as well as view my profile
-          over at Github.
+          <p>
+            You can reach me via email and LinkedIn as well as view my profile
+            over at Github.
+          </p>
           <ContactIconsContainer>
-            <ContactIcon src={EmailIcon} alt="email-icon"></ContactIcon>
-            <ContactIcon src={LinkedinIcon} alt="linkedin-icon"></ContactIcon>
-            <ContactIcon src={GithubIcon} alt="github-icon"></ContactIcon>
+            <ContactIcon
+              href="mailto:jhwang137@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={EmailIcon} alt="email-icon"></img>
+            </ContactIcon>
+            <ContactIcon
+              href="https://www.linkedin.com/in/jameshwangcali/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={LinkedinIcon} alt="linkedin-icon"></img>
+            </ContactIcon>
+            <ContactIcon
+              href="https://github.com/Kiwilicious"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={GithubIcon} alt="github-icon"></img>
+            </ContactIcon>
           </ContactIconsContainer>
         </SectionContainer>
       </AppContent>

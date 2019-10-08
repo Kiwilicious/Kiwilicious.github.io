@@ -4,32 +4,35 @@ import { Link } from "react-scroll";
 
 import styles from "./Navbar.module.css";
 
-const Fadeaway = styled.div`
-  background: linear-gradient(to top, transparent, white);
-  height: 30px;
+const NavContainer = styled.div`
+  background-color: white;
+  box-shadow: 0 1px 4px -1px rgba(var(--rgb-arsenic), 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 `;
 
 const NavLinks = styled.nav`
   align-items: center;
-  background-color: white;
-  /* box-shadow: 0 20px 10px white; */
   display: flex;
-  height: 70px;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
+  height: 4rem;
+  margin: 0 auto;
+  padding: 0 6rem;
+  width: 80rem;
 `;
 
 const Navbar = () => {
+  const rem = 16;
+  const offset = -8 * rem;
+
   return (
-    <div>
+    <NavContainer>
       <NavLinks>
         <Link
           activeClass={styles.active}
           className={styles["nav-link"]}
           duration={500}
-          offset={-70}
+          offset={offset}
           smooth={true}
           spy={true}
           to="home"
@@ -40,7 +43,7 @@ const Navbar = () => {
           activeClass={styles.active}
           className={styles["nav-link"]}
           duration={500}
-          offset={-70}
+          offset={offset}
           smooth={true}
           spy={true}
           to="projects"
@@ -51,7 +54,7 @@ const Navbar = () => {
           activeClass={styles.active}
           className={styles["nav-link"]}
           duration={500}
-          offset={-70}
+          offset={offset}
           smooth={true}
           spy={true}
           to="contact"
@@ -59,8 +62,7 @@ const Navbar = () => {
           Contact
         </Link>
       </NavLinks>
-      <Fadeaway></Fadeaway>
-    </div>
+    </NavContainer>
   );
 };
 
