@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Card from "./components/Card";
 import Navbar from "./components/Navbar/Navbar";
+import TextCard from "./components/TextCard/Textcard";
 
+import { projectData } from "./constants/constants";
 import EmailIcon from "./assets/email.svg";
 import GithubIcon from "./assets/github.svg";
 import LinkedinIcon from "./assets/linkedin.svg";
@@ -23,12 +24,6 @@ const SectionContainer = styled.div`
 const SectionTitle = styled.h3`
   font-weight: 500;
   text-transform: uppercase;
-`;
-
-const TestCardContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
 `;
 
 const ContactIconsContainer = styled.div`
@@ -59,22 +54,14 @@ const App: React.FC = () => {
         </SectionContainer>
         <SectionContainer id="projects">
           <SectionTitle>Projects</SectionTitle>
-          <TestCardContainer>
-            {new Array(10).fill(0).map((_, i) => (
-              <div style={{ margin: "20px 0" }}>
-                <Card
-                  cardText={{
-                    title: `test card ${i}`,
-                    description: "yada yada yada",
-                    linkUrl: "https://google.com"
-                  }}
-                  imageUrl={
-                    "https://walkjapan.com/application/files/5514/5570/5986/hero-slide-japan.jpg"
-                  }
-                />
-              </div>
-            ))}
-          </TestCardContainer>
+          {projectData.map(({ title, description, link }) => (
+            <TextCard
+              title={title}
+              description={description}
+              link={link}
+              key={title}
+            />
+          ))}
         </SectionContainer>
         <SectionContainer id="contact">
           <SectionTitle>Contact</SectionTitle>
